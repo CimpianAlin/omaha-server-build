@@ -1,0 +1,27 @@
+db:
+  extends:
+    file: omaha-server/docker-compose.common.yml
+    service: db
+
+redis:
+  extends:
+    file: omaha-server/docker-compose.common.yml
+    service: redis
+
+web:
+  extends:
+    file: omaha-server/docker-compose.common.yml
+    service: web
+  build: omaha-server
+  links:
+    - db
+    - redis
+  volumes:
+    - omaha-server/:/srv/omaha
+
+test:
+  build: .
+  volumes:
+    - .:/src
+  links:
+    - web

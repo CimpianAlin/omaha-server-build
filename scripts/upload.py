@@ -22,7 +22,7 @@ password = 'admin'
 # Upload New Sparkle Version
 #
 
-url = 'http://localhost:9090/api/sparkle/version/'
+url = 'http://web/api/sparkle/version/'
 r = requests.get(url, auth=HTTPBasicAuth(username, password))
 if r.status_code != 200:
 	raise UserWarning("Non 200 response from {}".format(url))
@@ -53,7 +53,6 @@ data = MultipartEncoder(
 	    file=(os.path.basename(sys.argv[1]), open(path_to_new_version_file, 'rb'), 'text/plain'),
 	)
 )
-url = 'http://localhost:9090/api/sparkle/version/'
 r = requests.post(
     url, data=data, auth=HTTPBasicAuth(username, password), headers={'Content-Type': data.content_type})
 
