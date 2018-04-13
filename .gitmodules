@@ -1,0 +1,3 @@
+[submodule "omaha-server"]
+	path = omaha-server
+	url = ./omaha-server/
