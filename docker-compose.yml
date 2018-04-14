@@ -18,6 +18,8 @@ web:
     - redis
   volumes:
     - omaha-server/:/srv/omaha
+  environment:
+    OMAHA_URL_PREFIX: http://localhost:9090
 
 test:
   build: .
