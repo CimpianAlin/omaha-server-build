@@ -27,3 +27,5 @@ test:
     - .:/src
   links:
     - web
+  environment:
+    - DSA_SIGNATURE

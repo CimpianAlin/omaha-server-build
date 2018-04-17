@@ -66,9 +66,8 @@ if not r.ok:
 try:
 	versions = [x['version'] for x in json.loads(r.text)]
 	current_ver = sorted(versions, key=StrictVersion)[-1]
-
 except IndexError:
-	current_ver = "1.0"
+	current_ver = "10101" # Needs to be higher then CFBundleVersion
 
 minor_ver = current_ver.split('.')[-1]
 upload_ver = current_ver.split('.')
@@ -82,7 +81,7 @@ data = MultipartEncoder(
 	    app=uuid,
 	    channel='1',
 	    version=upload_ver,
-	    short_version=upload_ver,
+	    short_version='1.1', #Short version isn't checked when running update
 	    dsa_signature=dsa_signature,
 	    file=(name, open(path, 'rb'), 'text/plain'),
 	)
