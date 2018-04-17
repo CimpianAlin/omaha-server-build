@@ -8,4 +8,7 @@ cd omaha-server
 git submodule sync
 git submodule update
 
-./scripts/sign_and_upload.sh ~/path/to/app.dmg path/to/dsa_priv.pem
+# This will start omaha-server in docker, sign and upload the dmg to it
+./scripts/test.sh ~/path/to/app.dmg path/to/dsa_priv.pem
+
+# Should be able to test the update with the url http://localhost:9090/sparkle/test/stable/appcast.xml
