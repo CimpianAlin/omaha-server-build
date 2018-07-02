@@ -1,4 +1,4 @@
-WIP, this may not work for you currently.
+### This will be archived soon, see https://github.com/brave/omaha-server-build/issues/1
 
 # Example
 
